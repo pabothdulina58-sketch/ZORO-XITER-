@@ -3,85 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080808">
-<title>ZORO XITER PREMIUM</title>
+<meta name="theme-color" content="#080812">
+<title>ZORO XITER RGB V4</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial}
+:root{--rgb:linear-gradient(90deg,#ff004c,#a000ff,#00d9ff,#00ff88)}
 body{
-background:#070707;color:white;padding:15px;
-min-height:100vh;
+ background:#080812;color:white;padding:15px;
+ min-height:100vh;
 }
-.app{max-width:440px;margin:auto}
+.app{max-width:450px;margin:auto}
 header{
-display:flex;justify-content:space-between;
-align-items:center;padding:20px 5px;
+ display:flex;justify-content:space-between;
+ align-items:center;padding:20px 5px;
 }
-.logo{font-size:25px;font-weight:900;color:#ff2020;
-text-shadow:0 0 15px red}
-.pro{border:1px solid red;color:#ff3333;
-padding:7px 12px;border-radius:20px;font-size:10px}
+.logo{
+ font-size:25px;font-weight:900;
+ background:var(--rgb);
+ background-size:300%;
+ background-clip:text;color:transparent;
+ animation:rgb 5s linear infinite;
+}
+@keyframes rgb{to{background-position:300%}}
+.badge{
+ border:1px solid #a000ff;color:#d58cff;
+ padding:7px 11px;border-radius:20px;font-size:10px;
+}
 .card{
-background:linear-gradient(145deg,#191919,#0c0c0c);
-border:1px solid #353535;border-radius:17px;
-padding:19px;margin:15px 0;
-box-shadow:0 5px 25px #160000;
+ background:linear-gradient(145deg,#171727,#0c0c18);
+ border:1px solid #38304d;border-radius:16px;
+ padding:19px;margin:15px 0;
+ box-shadow:0 0 15px #5b00a522;
 }
-.title{color:#ff2929;font-size:14px;
-font-weight:bold;margin-bottom:17px}
+.title{font-size:14px;font-weight:bold;
+ color:#d58cff;margin-bottom:17px}
 input[type=text]{
-width:100%;padding:16px;background:#080808;
-border:1px solid #444;color:white;
-border-radius:9px;text-align:center;margin:20px 0;
+ width:100%;padding:15px;background:#080812;
+ border:1px solid #713d9c;border-radius:9px;
+ color:white;text-align:center;margin:20px 0;
 }
 button{
-width:100%;padding:15px;border:0;
-border-radius:9px;background:#e60020;
-color:white;font-weight:bold;font-size:14px;
-cursor:pointer;margin-top:10px;
+ width:100%;padding:14px;border:0;
+ border-radius:9px;background:var(--rgb);
+ background-size:300%;color:white;
+ font-weight:bold;cursor:pointer;margin-top:10px;
+ animation:rgb 5s linear infinite;
 }
-button:active{transform:scale(.97)}
-.dark{background:#292929;border:1px solid #555}
-.status{color:#00e676;font-size:12px;text-align:center;margin-top:15px}
+.dark{background:#242438;border:1px solid #673c89}
 #dashboard{display:none}
 .grid{
-display:grid;grid-template-columns:1fr 1fr;gap:12px;
+ display:grid;grid-template-columns:1fr 1fr;gap:12px;
 }
 .info{
-background:#111;border:1px solid #333;
-border-radius:12px;padding:16px;
+ background:#10101d;border:1px solid #38304d;
+ padding:15px;border-radius:12px;min-height:85px;
 }
-.info small{color:#888;font-size:10px}
-.info h2{color:#ff3030;font-size:22px;margin-top:10px}
+.info small{color:#999;font-size:10px}
+.info h2{font-size:19px;margin-top:10px;color:#d58cff}
 .row{
-display:flex;justify-content:space-between;
-align-items:center;padding:15px 0;
-border-bottom:1px solid #292929;
+ display:flex;justify-content:space-between;
+ align-items:center;padding:14px 0;
+ border-bottom:1px solid #30283c;font-size:13px;
 }
 .row:last-child{border:0}
-.row span{font-size:13px}
-.switch{
-appearance:none;width:42px;height:23px;
-background:#444;border-radius:20px;position:relative;
-}
-.switch:before{
-content:"";position:absolute;width:17px;height:17px;
-background:white;border-radius:50%;top:3px;left:3px;
-transition:.2s;
-}
-.switch:checked{background:#e60020}
-.switch:checked:before{left:22px}
+.switch{accent-color:#a000ff;width:20px;height:20px}
 .game{display:flex;gap:10px}
 .game button{flex:1}
+.status{color:#00ffad;text-align:center;
+ font-size:12px;margin-top:13px}
 nav{
-display:flex;justify-content:space-around;
-padding:17px 5px;background:#151515;
-border:1px solid #333;border-radius:12px;
-margin-top:20px;
+ display:flex;justify-content:space-around;
+ padding:17px 5px;background:#171727;
+ border:1px solid #49335d;border-radius:12px;
+ margin-top:18px;
 }
-nav span{font-size:11px;color:#aaa}
-footer{text-align:center;color:#555;
-font-size:10px;padding:25px}
+nav span{font-size:11px;color:#aaa;cursor:pointer}
+nav span.active{color:#e18cff}
+.page{display:none}
+.page.active{display:block}
+footer{text-align:center;color:#666;
+ font-size:10px;padding:25px}
 </style>
 </head>
 
@@ -90,182 +92,182 @@ font-size:10px;padding:25px}
 
 <header>
 <div class="logo">⚡ ZORO XITER</div>
-<div class="pro">👑 PREMIUM</div>
+<div class="badge">✦ RGB PREMIUM</div>
 </header>
 
 <div class="card" id="login">
-<h2 style="text-align:center;color:#ff2929">
+<h2 style="text-align:center;color:#d58cff">
 ZORO XITER
 </h2>
 <p style="text-align:center;color:#888;font-size:11px;margin-top:8px">
-PREMIUM LICENSE ACTIVATION
+CYBER LICENSE ACTIVATION
 </p>
-<input type="text" id="key" placeholder="ENTER YOUR LICENSE KEY">
-<button onclick="activate()">ACTIVATE NOW</button>
-<p class="status" id="msg">● Waiting for activation</p>
+<input type="text" id="key" placeholder="ENTER LICENSE KEY">
+<button onclick="activate()">ACTIVATE PANEL</button>
+<div class="status" id="msg">● WAITING FOR ACTIVATION</div>
 </div>
 
 <div id="dashboard">
 
+<div class="page active" id="home">
 <div class="card">
 <div class="title">👑 WELCOME TO ZORO</div>
-<h2 style="color:#ff2929">PREMIUM PANEL</h2>
-<p style="color:#888;font-size:12px;margin-top:8px">
-Your gaming dashboard is ready.
+<h2 style="color:#d58cff">CYBER DASHBOARD V4</h2>
+<p style="color:#aaa;font-size:12px;margin-top:10px">
+Premium Gaming Experience
 </p>
-<p class="status">● SYSTEM ACTIVE</p>
+<div class="status">● PANEL ONLINE</div>
 </div>
 
 <div class="grid">
 <div class="info">
-<small>📱 DEVICE MODEL</small>
-<h2 id="device">iPhone</h2>
+<small>📱 DEVICE</small>
+<h2 id="device">Checking...</h2>
 </div>
 <div class="info">
-<small>⚡ PANEL FPS</small>
+<small>⚡ WEB FPS</small>
 <h2 id="fps">--</h2>
 </div>
 <div class="info">
-<small>🔐 LICENSE</small>
-<h2 style="font-size:16px">ACTIVE</h2>
+<small>🔋 BATTERY</small>
+<h2 id="battery">N/A</h2>
 </div>
 <div class="info">
-<small>🌐 BROWSER</small>
-<h2 style="font-size:16px" id="browser">Safari</h2>
+<small>🌐 NETWORK</small>
+<h2 id="network">Checking</h2>
 </div>
 </div>
 
 <div class="card">
 <div class="title">🎮 GAME LAUNCHER</div>
 <div class="game">
-<button onclick="launch('freefire')">FREE FIRE</button>
-<button class="dark" onclick="launch('max')">FREE FIRE MAX</button>
+<button onclick="launch('freefire://')">FREE FIRE</button>
+<button class="dark" onclick="launch('freefiremax://')">FREE FIRE MAX</button>
 </div>
-<p style="color:#777;font-size:10px;text-align:center;margin-top:12px">
-Open your installed game.
+<p style="color:#888;font-size:10px;margin-top:12px;text-align:center">
+Requires the game to be installed and support its launch link.
 </p>
 </div>
-
-<div class="card">
-<div class="title">⚙️ GAMING SETTINGS</div>
-
-<div class="row">
-<span>Gaming Mode</span>
-<input class="switch" type="checkbox">
-</div>
-<div class="row">
-<span>Performance Guide</span>
-<input class="switch" type="checkbox">
-</div>
-<div class="row">
-<span>Sound Guide</span>
-<input class="switch" type="checkbox">
-</div>
-<div class="row">
-<span>Battery Saving Guide</span>
-<input class="switch" type="checkbox">
-</div>
 </div>
 
+<div class="page" id="devicePage">
 <div class="card">
 <div class="title">📱 DEVICE INFORMATION</div>
-<div class="row"><span>Platform</span><span id="platform">iOS</span></div>
-<div class="row"><span>Screen Width</span><span id="width"></span></div>
-<div class="row"><span>Screen Height</span><span id="height"></span></div>
-<div class="row"><span>Connection</span><span id="connection">Unknown</span></div>
+<div class="row"><span>Device Type</span><span id="device2">--</span></div>
+<div class="row"><span>Platform</span><span id="platform">--</span></div>
+<div class="row"><span>Browser</span><span id="browser">--</span></div>
+<div class="row"><span>Screen Size</span><span id="screen">--</span></div>
+<div class="row"><span>Language</span><span id="language">--</span></div>
+<div class="row"><span>Battery</span><span id="battery2">Unavailable</span></div>
+<div class="row"><span>Network</span><span id="network2">Unknown</span></div>
+</div>
 </div>
 
+<div class="page" id="settings">
 <div class="card">
-<div class="title">🔐 LICENSE INFORMATION</div>
-<div class="row"><span>Account</span><span>Premium</span></div>
-<div class="row"><span>License Status</span><span style="color:#00e676">ACTIVE</span></div>
-<div class="row"><span>Version</span><span>V3.0</span></div>
+<div class="title">⚙️ RGB SETTINGS</div>
+<div class="row">RGB Animation
+<input type="checkbox" class="switch" checked>
+</div>
+<div class="row">Sound Guide
+<input type="checkbox" class="switch">
+</div>
+<div class="row">Performance Tips
+<input type="checkbox" class="switch" checked>
+</div>
+<div class="row">Battery Saving Guide
+<input type="checkbox" class="switch">
+</div>
+</div>
+<div class="card">
+<div class="title">🔐 LICENSE DETAILS</div>
+<div class="row">Username <span>ZORO USER</span></div>
+<div class="row">License <span style="color:#00ffad">DEMO ACTIVE</span></div>
+<div class="row">Version <span>V4.0</span></div>
 <button class="dark" onclick="logout()">LOG OUT</button>
+</div>
 </div>
 
 <nav>
-<span>⌂ HOME</span>
-<span>▣ DEVICE</span>
-<span>⚙ SETTINGS</span>
+<span class="active" onclick="tab('home',this)">⌂ HOME</span>
+<span onclick="tab('devicePage',this)">▣ DEVICE</span>
+<span onclick="tab('settings',this)">⚙ SETTINGS</span>
 </nav>
 
 </div>
 
-<footer>
-ZORO XITER © 2026<br>
-PREMIUM GAMING EXPERIENCE
-</footer>
+<footer>ZORO XITER © 2026<br>RGB CYBER PREMIUM</footer>
 </div>
 
 <script>
 function activate(){
-const key=document.getElementById("key").value.trim();
-if(key==="ZORO-3105"){
-document.getElementById("login").style.display="none";
-document.getElementById("dashboard").style.display="block";
-loadDevice();
-}else{
-document.getElementById("msg").innerText="INVALID LICENSE KEY!";
-document.getElementById("msg").style.color="red";
-}
-}
-
-function loadDevice(){
-const ua=navigator.userAgent;
-let model="iPhone";
-
-if(ua.includes("iPad")) model="iPad";
-else if(ua.includes("iPhone")) model="iPhone";
-else if(ua.includes("Android")) model="Android";
-
-document.getElementById("device").innerText=model;
-document.getElementById("platform").innerText=navigator.platform||"Unknown";
-document.getElementById("width").innerText=screen.width+" px";
-document.getElementById("height").innerText=screen.height+" px";
-
-document.getElementById("browser").innerText=
-ua.includes("Safari")?"Safari":"Browser";
-
-if(navigator.connection){
-document.getElementById("connection").innerText=
-navigator.connection.effectiveType;
+ let k=document.getElementById("key").value.trim();
+ if(k==="ZORO-3105"){
+  document.getElementById("login").style.display="none";
+  document.getElementById("dashboard").style.display="block";
+  loadInfo();
+ }else{
+  document.getElementById("msg").innerText="INVALID LICENSE KEY";
+  document.getElementById("msg").style.color="red";
+ }
 }
 
+function loadInfo(){
+ let ua=navigator.userAgent;
+ let device=ua.includes("iPad")?"iPad":
+ ua.includes("iPhone")?"iPhone":
+ ua.includes("Android")?"Android":"Other device";
+
+ document.getElementById("device").innerText=device;
+ document.getElementById("device2").innerText=device;
+ document.getElementById("platform").innerText=navigator.platform||"Unknown";
+ document.getElementById("browser").innerText=
+ ua.includes("Safari")?"Safari":"Other browser";
+ document.getElementById("screen").innerText=
+ screen.width+" × "+screen.height;
+ document.getElementById("language").innerText=navigator.language;
+
+ let conn=navigator.connection;
+ let network=conn?conn.effectiveType:"Unavailable";
+ document.getElementById("network").innerText=network;
+ document.getElementById("network2").innerText=network;
+
+ if(navigator.getBattery){
+  navigator.getBattery().then(b=>{
+   let value=Math.round(b.level*100)+"%";
+   document.getElementById("battery").innerText=value;
+   document.getElementById("battery2").innerText=value;
+  }).catch(()=>{});
+ }
+}
+
+function tab(id,el){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ document.querySelectorAll("nav span").forEach(n=>n.classList.remove("active"));
+ el.classList.add("active");
 }
 
 function logout(){
-document.getElementById("dashboard").style.display="none";
-document.getElementById("login").style.display="block";
-document.getElementById("key").value="";
+ document.getElementById("dashboard").style.display="none";
+ document.getElementById("login").style.display="block";
+ document.getElementById("key").value="";
 }
 
-function launch(game){
-if(game==="freefire"){
-window.location.href="freefire://";
-}else{
-window.location.href="freefiremax://";
-}
-setTimeout(()=>{
-alert("If the game did not open, launch it manually.");
-},1500);
+function launch(link){
+ window.location.href=link;
 }
 
-// Measures this webpage's animation frame rate,
-// NOT Free Fire's actual FPS.
-let last=0;
-let frames=0;
-
-function measureFPS(time){
-frames++;
-if(time-last>=1000){
-document.getElementById("fps").innerText=frames;
-frames=0;
-last=time;
+let last=0,count=0;
+function fpsLoop(t){
+ count++;
+ if(t-last>=1000){
+  document.getElementById("fps").innerText=count;
+  count=0;last=t;
+ }
+ requestAnimationFrame(fpsLoop);
 }
-requestAnimationFrame(measureFPS);
-}
-requestAnimationFrame(measureFPS);
+requestAnimationFrame(fpsLoop);
 </script>
-
 </body>
 </html>
